@@ -37,9 +37,10 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\VRMCharacter\UniGLTF\Samples\UniHumanoid\RuntimeBvhLoader.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\StateMachine.cs" />
      <Compile Include="Assets\VRMCharacter\UniGLTF\Samples\UniHumanoid\HumanBuilderTest.cs" />
      <Compile Include="Assets\Scripts\StateMachine\IState.cs" />
-     <Compile Include="Assets\Scripts\StateMachine\StateMachine.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\PlayerMovementStateMachine.cs" />
      <None Include="Assets\Materials\Kenny Mats\License.txt" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon.shader" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_attribute.hlsl" />
@@ -637,11 +638,26 @@
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Autodesk.Fbx.Editor">
+        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Autodesk.Fbx.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Formats.Fbx.Editor">
+        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.Formats.Fbx.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline">
         <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
         <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder">
+        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.ProBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Editor">
+        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.ProBuilder.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
@@ -658,38 +674,23 @@
     <Reference Include="Unity.PlasticSCM.Editor">
         <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Autodesk.Fbx">
+        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Autodesk.Fbx.dll</HintPath>
+    </Reference>
     <Reference Include="Cinemachine">
         <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
         <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Autodesk.Fbx.Editor">
-        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Autodesk.Fbx.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Formats.Fbx.Editor">
-        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.Formats.Fbx.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Autodesk.Fbx">
-        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Autodesk.Fbx.dll</HintPath>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Formats.Fbx.Runtime">
         <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.Formats.Fbx.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.ProBuilder">
-        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.ProBuilder.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AddOns.Editor">
-        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.ProBuilder.AddOns.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.Editor">
-        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.ProBuilder.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    <Reference Include="Unity.Timeline.Editor">
+        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
