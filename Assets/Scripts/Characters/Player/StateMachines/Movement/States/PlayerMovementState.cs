@@ -92,7 +92,7 @@ namespace GenshinImpactMovementSystem
 
         private float GetDirectionAngle(Vector3 direction)
         {
-            float directionAngle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+            float directionAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
 
             if (directionAngle < 0f)
             {
@@ -132,7 +132,7 @@ namespace GenshinImpactMovementSystem
 
         protected float GetMovementSpeed()
         {
-            return movementData.BaseSpeed * stateMachine.ReusableData.MovementSpeedModifier;
+            return movementData.BaseSpeed * stateMachine.ReusableData.MovementSpeedModifier * stateMachine.ReusableData.MovementOnSlopeSpeedModifier;
         }
 
         protected Vector3 GetPlayerHorizontalVelocity()
@@ -142,6 +142,11 @@ namespace GenshinImpactMovementSystem
             playerHorizontalVelocity.y = 0f;
 
             return playerHorizontalVelocity;
+        }
+
+        protected Vector3 GetPlayerVerticalVelocity()
+        {
+            return new Vector3(0f, stateMachine.Player.Rigidbody.velocity.y, 0f);
         }
 
         protected void RotateTowardsTargetRotation()
