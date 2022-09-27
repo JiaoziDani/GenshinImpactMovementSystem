@@ -65,6 +65,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Hold(duration=1)""
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""5f2faea6-625a-4430-89d3-2abb625c3da5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -199,6 +207,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8201e4b6-442e-4cdc-9414-39e0186ce7bb"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -213,6 +232,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_Player_Zoom = m_Player.FindAction("Zoom", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -268,6 +288,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Zoom;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_Jump;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -278,6 +299,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @Zoom => m_Wrapper.m_Player_Zoom;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -305,6 +327,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Sprint.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
+                @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -327,6 +352,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Sprint.started += instance.OnSprint;
                 @Sprint.performed += instance.OnSprint;
                 @Sprint.canceled += instance.OnSprint;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
             }
         }
     }
@@ -339,5 +367,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnZoom(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }

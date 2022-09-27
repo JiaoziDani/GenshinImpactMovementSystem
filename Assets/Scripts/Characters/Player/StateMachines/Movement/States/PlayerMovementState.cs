@@ -12,11 +12,15 @@ namespace GenshinImpactMovementSystem
         
         protected PlayerGroundedData movementData;
 
+        protected PlayerAirborneData airborneData;
+
         public PlayerMovementState(PlayerMovementStateMachine playerMovementStateMachine)
         {
             stateMachine = playerMovementStateMachine;
 
             movementData = stateMachine.Player.Data.GroundedData;
+
+            airborneData = stateMachine.Player.Data.AirborneData;
 
             InitializeData();
         }
@@ -63,6 +67,16 @@ namespace GenshinImpactMovementSystem
 
         public virtual void OnAnimationTransitionEvent()
         {
+        }
+
+        public virtual void OnTriggerEnter(Collider collider)
+        {
+            if (stateMachine.Player.LayerData.IsGroundLayer(collider.gameObject.layer))
+            {
+                OnContactWithGround(collider);
+
+                return;
+            }
         }
 
         #endregion
@@ -242,6 +256,10 @@ namespace GenshinImpactMovementSystem
             Vector2 playerHorizontalMovement = new Vector2(playerHorizontalVelocity.x, playerHorizontalVelocity.z);
 
             return playerHorizontalMovement.magnitude > minimumMagnitude;
+        }
+
+        protected virtual void OnContactWithGround(Collider collider)
+        {
         }
 
         #endregion

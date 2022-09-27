@@ -27,6 +27,8 @@ namespace GenshinImpactMovementSystem
 
             stateMachine.ReusableData.MovementSpeedModifier = sprintData.SpeedModifier;
 
+            stateMachine.ReusableData.CurrentJumpForce = airborneData.JumpData.StrongForce;
+
             startTime = Time.time;
         }
 
