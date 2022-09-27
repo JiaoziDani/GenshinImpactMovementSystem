@@ -23,7 +23,7 @@ namespace GenshinImpactMovementSystem
 
         private void InitializeData()
         {
-            stateMachine.ReusableData.TimeToReachTargetRotation = movementData.BaseRotationData.TargetRotationReachTime;
+            SetBaseRotationData();
         }
 
         #region IState Methods
@@ -137,6 +137,13 @@ namespace GenshinImpactMovementSystem
         #endregion
 
         #region Reusable Methods
+
+        protected void SetBaseRotationData()
+        {
+            stateMachine.ReusableData.RotationData = movementData.BaseRotationData;
+
+            stateMachine.ReusableData.TimeToReachTargetRotation = stateMachine.ReusableData.RotationData.TargetRotationReachTime;
+        }
 
         protected Vector3 GetMovementInputDirection()
         {
