@@ -10,6 +10,8 @@ namespace GenshinImpactMovementSystem
     {
         private PlayerSprintData sprintData;
 
+        private float startTime;
+
         private bool keepSprinting;
 
         public PlayerSprintingState(PlayerMovementStateMachine playerMovementStateMachine) : base(playerMovementStateMachine)
@@ -24,6 +26,48 @@ namespace GenshinImpactMovementSystem
             base.Enter();
 
             stateMachine.ReusableData.MovementSpeedModifier = sprintData.SpeedModifier;
+
+            startTime = Time.time;
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+
+            keepSprinting = false;
+        }
+
+        public override void Update()
+        {
+            base.Update();
+
+            if (keepSprinting)
+            {
+                return;
+            }
+
+            if(Time.time < startTime + sprintData.SprintToRunTime)
+            {
+                return;
+            }
+
+            StopSprinting();
+        }
+
+        #endregion
+
+        #region Main Methods
+
+        private void StopSprinting()
+        {
+            if(stateMachine.ReusableData.MovementInput == Vector2.zero)
+            {
+                stateMachine.ChangeState(stateMachine.IdlingState);
+
+                return;
+            }
+
+                stateMachine.ChangeState(stateMachine.RunningState);
         }
 
         #endregion

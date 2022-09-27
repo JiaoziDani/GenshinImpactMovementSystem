@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,13 @@ namespace GenshinImpactMovementSystem
 {
     public class PlayerRunningState : PlayerMovingState
     {
+        private PlayerSprintData sprintData;
+
+        private float startTime;
+
         public PlayerRunningState(PlayerMovementStateMachine playerMovementStateMachine) : base(playerMovementStateMachine)
         {
+            sprintData = movementData.SprintData;
         }
 
         #region IState Methods
@@ -18,7 +24,45 @@ namespace GenshinImpactMovementSystem
             base.Enter();
 
             stateMachine.ReusableData.MovementSpeedModifier = movementData.RunData.SpeedModifier;
+
+            startTime = Time.time;
         }
+
+        public override void Update()
+        {
+            base.Update();
+
+            if (!stateMachine.ReusableData.ShouldWalk)
+            {
+                return;
+            }
+
+            if (Time.time < startTime + sprintData.RunToWalkTime)
+            {
+                return;
+            }
+            
+            StopRunning();
+        }
+        
+        #region Main Methods
+
+        private void StopRunning()
+        {
+            if (stateMachine.ReusableData.MovementInput == Vector2.zero)
+            {
+
+                stateMachine.ChangeState(stateMachine.IdlingState);
+                
+            
+                return;
+            }
+            
+            stateMachine.ChangeState(stateMachine.WalkingState);
+
+        }
+
+        #endregion
 
         #endregion
 
