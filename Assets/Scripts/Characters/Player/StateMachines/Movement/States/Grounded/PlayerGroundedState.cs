@@ -14,8 +14,15 @@ namespace GenshinImpactMovementSystem
         {
             slopeData = stateMachine.Player.ColliderUtility.SlopeData;
         }
-        
+
         #region  IState Methods
+
+        public override void Enter()
+        {
+            base.Enter();
+
+            UpdateShouldSprintState();
+        }
 
         public override void PhysicsUpdate()
         {
@@ -26,6 +33,21 @@ namespace GenshinImpactMovementSystem
         #endregion
 
         #region Main Methods
+
+        private void UpdateShouldSprintState()
+        {
+            if (!stateMachine.ReusableData.ShouldSprint)
+            {
+                return;
+            }
+
+            if (stateMachine.ReusableData.MovementInput != Vector2.zero)
+            {
+                return;
+            }
+
+            stateMachine.ReusableData.ShouldSprint = false;
+        }
 
         private void Float()
         {
@@ -95,7 +117,14 @@ namespace GenshinImpactMovementSystem
         }
 
         protected virtual void OnMove()
-        {
+        {   
+            if(stateMachine.ReusableData.ShouldSprint)
+            {
+                stateMachine.ChangeState(stateMachine.SprintingState);
+
+                return;
+            }
+
             if (stateMachine.ReusableData.ShouldWalk)
             {
                 stateMachine.ChangeState(stateMachine.WalkingState);
