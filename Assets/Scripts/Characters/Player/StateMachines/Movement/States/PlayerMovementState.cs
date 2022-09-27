@@ -79,6 +79,16 @@ namespace GenshinImpactMovementSystem
             }
         }
 
+        public void OnTriggerExit(Collider collider)
+        {
+            if (stateMachine.Player.LayerData.IsGroundLayer(collider.gameObject.layer))
+            {
+                OnContactWithGroundExited(collider);
+
+                return;
+            }
+        }
+
         #endregion
 
         #region Main Methods
@@ -159,6 +169,18 @@ namespace GenshinImpactMovementSystem
             stateMachine.ReusableData.TimeToReachTargetRotation = stateMachine.ReusableData.RotationData.TargetRotationReachTime;
         }
 
+        protected virtual void AddInputActionsCallbacks()
+        {
+            stateMachine.Player.Input.PlayerActions.WalkToggle.started += OnWalkToggleStarted;
+    
+        }
+
+        protected virtual void RemoveInputActionsCallbacks()
+        {
+            stateMachine.Player.Input.PlayerActions.WalkToggle.started -= OnWalkToggleStarted;
+    
+        }
+
         protected Vector3 GetMovementInputDirection()
         {
             return new Vector3(stateMachine.ReusableData.MovementInput.x, 0f, stateMachine.ReusableData.MovementInput.y);
@@ -230,16 +252,11 @@ namespace GenshinImpactMovementSystem
             stateMachine.Player.Rigidbody.velocity = Vector3.zero;
         }
 
-        protected virtual void AddInputActionsCallbacks()
+        protected void ResetVericalVelocity()
         {
-            stateMachine.Player.Input.PlayerActions.WalkToggle.started += OnWalkToggleStarted;
-    
-        }
+            Vector3 playerHorizontalVelocity = GetPlayerHorizontalVelocity();
 
-        protected virtual void RemoveInputActionsCallbacks()
-        {
-            stateMachine.Player.Input.PlayerActions.WalkToggle.started -= OnWalkToggleStarted;
-    
+            stateMachine.Player.Rigidbody.velocity = playerHorizontalVelocity;
         }
 
         protected void DecelerateHorizontally()
@@ -277,6 +294,10 @@ namespace GenshinImpactMovementSystem
         }
 
         protected virtual void OnContactWithGround(Collider collider)
+        {
+        }
+
+        protected virtual void OnContactWithGroundExited(Collider collider)
         {
         }
 
