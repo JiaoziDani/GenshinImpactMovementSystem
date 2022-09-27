@@ -12,6 +12,8 @@ namespace GenshinImpactMovementSystem
 
         public PlayerIdlingState IdlingState { get; }
 
+        public PlayerDashingState DashingState { get; }
+
         public PlayerWalkingState WalkingState { get; }
 
         public PlayerRunningState RunningState { get; }
@@ -24,6 +26,7 @@ namespace GenshinImpactMovementSystem
 
             ReusableData = new PlayerStateReusableData();
             IdlingState = new PlayerIdlingState(this);
+            DashingState = new PlayerDashingState(this);
             WalkingState = new PlayerWalkingState(this);
             RunningState = new PlayerRunningState(this);
             SprintingState = new PlayerSprintingState(this);
