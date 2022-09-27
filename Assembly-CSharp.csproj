@@ -38,6 +38,8 @@
   <ItemGroup>
      <Compile Include="Assets\VRMCharacter\UniGLTF\Samples\UniHumanoid\RuntimeBvhLoader.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\States\PlayerStateReusableData.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\Data\States\Grounded\PlayerDashData.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\PlayerDashingState.cs" />
      <Compile Include="Assets\Scripts\Utilities\Colliders\CapsuleColliderUtility.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Utilities\Input\PlayerInput.cs" />
      <Compile Include="Assets\Scripts\Data\Collider\DefaultColliderData.cs" />
@@ -53,6 +55,7 @@
      <Compile Include="Assets\Scripts\Characters\Player\Data\Layers\PlayerLayerData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Moving\PlayerMovingState.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Moving\PlayerWalkingState.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\Data\States\Grounded\Moving\PlayerSprintData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\PlayerIdlingState.cs" />
      <Compile Include="Assets\Scripts\Data\Collider\SlopeData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\PlayerMovementState.cs" />
@@ -63,9 +66,11 @@
      <Compile Include="Assets\Scripts\Characters\Player\Data\States\PlayerRotationData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\States\Grounded\Moving\PlayerRunData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Moving\PlayerRunningState.cs" />
-     <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\PlayerDashingState.cs" />
-     <Compile Include="Assets\Scripts\Characters\Player\Data\States\Grounded\PlayerDashData.cs" />
-     <Compile Include="Assets\Scripts\Characters\Player\Data\States\Grounded\Moving\PlayerSprintData.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Stopping\PlayerStoppingState.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Stopping\PlayerLightStoppingState.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Stopping\PlayerMediumStoppingState.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Stopping\PlayerHardStoppingState.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\Data\States\Grounded\Stopping\PlayerStopData.cs" />
      <None Include="Assets\Materials\Kenny Mats\License.txt" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon.shader" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_attribute.hlsl" />

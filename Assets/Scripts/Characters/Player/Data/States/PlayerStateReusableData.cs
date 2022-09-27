@@ -9,6 +9,7 @@ namespace GenshinImpactMovementSystem
         public Vector2 MovementInput { get; set; }
         public float MovementSpeedModifier { get; set; } =  1f;
         public float MovementOnSlopeSpeedModifier { get; set; } =  1f;
+        public float MovementDecelerationForce { get; set; } =  1f;
         public bool ShouldWalk { get; set; } 
 
         private Vector3 currentTargetRotation;
