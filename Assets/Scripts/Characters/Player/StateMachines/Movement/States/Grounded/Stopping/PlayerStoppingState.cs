@@ -16,9 +16,11 @@ namespace GenshinImpactMovementSystem
 
         public override void Enter()
         {
-            base.Enter();
-
             stateMachine.ReusableData.MovementSpeedModifier = 0f;
+
+            SetBaseCameraRecenteringData();
+
+            base.Enter();
         }
 
         public override void PhysicsUpdate()
@@ -61,10 +63,6 @@ namespace GenshinImpactMovementSystem
         #endregion
 
         #region Input Methods
-
-        protected override void OnMovementCanceled(InputAction.CallbackContext context)
-        {
-        }
 
         private void OnMovementStarted(InputAction.CallbackContext context)
         {
