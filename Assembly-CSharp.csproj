@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\PlayerGroundedState.cs" />
      <Compile Include="Assets\Scripts\StateMachine\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Data\Collider\CapsuleColliderData.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\Data\Colliders\PlayerTriggerColliderData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\States\Grounded\PlayerGroundedData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Airborne\PlayerAirborneState.cs" />
@@ -67,6 +68,8 @@
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\PlayerMovementState.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Stopping\PlayerLightStoppingState.cs" />
      <Compile Include="Assets\Scripts\StateMachine\IState.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\Utilities\Colliders\PlayerCapsuleColliderUtility.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Airborne\PlayerFallingState.cs" />
      <Compile Include="Assets\InputActions\Characters\Player\PlayerInputActions.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Moving\PlayerSprintingState.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Stopping\PlayerMediumStoppingState.cs" />
@@ -75,10 +78,12 @@
      <Compile Include="Assets\Scripts\Characters\Player\Data\States\Grounded\Moving\PlayerRunData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\States\Airborne\PlayerAirborneData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Moving\PlayerRunningState.cs" />
-     <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Airborne\PlayerFallingState.cs" />
-     <Compile Include="Assets\Scripts\Characters\Player\Data\Colliders\PlayerTriggerColliderData.cs" />
-     <Compile Include="Assets\Scripts\Characters\Player\Utilities\Colliders\PlayerCapsuleColliderUtility.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\States\Airborne\PlayerFallData.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Landing\PlayerLandingState.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Landing\PlayerLightLandingState.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Landing\PlayerRollingState.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Landing\PlayerHardLandingState.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\Data\States\Grounded\Landing\PlayerRollData.cs" />
      <None Include="Assets\Materials\Kenny Mats\License.txt" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon.shader" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_attribute.hlsl" />
