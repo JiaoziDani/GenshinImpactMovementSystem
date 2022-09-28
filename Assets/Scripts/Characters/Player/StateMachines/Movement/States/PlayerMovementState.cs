@@ -98,7 +98,7 @@ namespace GenshinImpactMovementSystem
             stateMachine.ReusableData.MovementInput = stateMachine.Player.Input.PlayerActions.Movement.ReadValue<Vector2>();
         }
 
-        private void Move()
+       private void Move()
         {
             if (stateMachine.ReusableData.MovementInput == Vector2.zero || stateMachine.ReusableData.MovementSpeedModifier == 0f)
             {
@@ -108,17 +108,17 @@ namespace GenshinImpactMovementSystem
             Vector3 movementDirection = GetMovementInputDirection();
 
             float targetRotationYAngle = Rotate(movementDirection);
-            
+
             Vector3 targetRotationDirection = GetTargetRotationDirection(targetRotationYAngle);
 
             float movementSpeed = GetMovementSpeed();
 
-            Vector3 currentPlayerHorizontalVelocity = GetPlayerHorizontalVelocity(); 
+            Vector3 currentPlayerHorizontalVelocity = GetPlayerHorizontalVelocity();
 
             stateMachine.Player.Rigidbody.AddForce(targetRotationDirection * movementSpeed - currentPlayerHorizontalVelocity, ForceMode.VelocityChange);
         }
 
-        private float Rotate(Vector3 direction)
+         private float Rotate(Vector3 direction)
         {
             float directionAngle = UpdateTargetRotation(direction);
 
@@ -127,7 +127,7 @@ namespace GenshinImpactMovementSystem
             return directionAngle;
         }
 
-        private float GetDirectionAngle(Vector3 direction)
+       private float GetDirectionAngle(Vector3 direction)
         {
             float directionAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
 
@@ -172,12 +172,23 @@ namespace GenshinImpactMovementSystem
         protected virtual void AddInputActionsCallbacks()
         {
             stateMachine.Player.Input.PlayerActions.WalkToggle.started += OnWalkToggleStarted;
-    
+            
+            stateMachine.Player.Input.PlayerActions.Look.started += OnMouseMovementStarted;
+
+            stateMachine.Player.Input.PlayerActions.Movement.performed += OnMovementPerformed;
+
+            stateMachine.Player.Input.PlayerActions.Movement.canceled +=  OnMovementCanceled;
         }
 
         protected virtual void RemoveInputActionsCallbacks()
         {
             stateMachine.Player.Input.PlayerActions.WalkToggle.started -= OnWalkToggleStarted;
+            
+            stateMachine.Player.Input.PlayerActions.Look.started -= OnMouseMovementStarted;
+
+            stateMachine.Player.Input.PlayerActions.Movement.performed -= OnMovementPerformed;
+
+            stateMachine.Player.Input.PlayerActions.Movement.canceled -=  OnMovementCanceled;
     
         }
 
@@ -232,8 +243,6 @@ namespace GenshinImpactMovementSystem
                 directionAngle = AddCameraRotationToAngle(directionAngle);
             }
 
-            directionAngle = AddCameraRotationToAngle(directionAngle);
-
             if (directionAngle != stateMachine.ReusableData.CurrentTargetRotation.y)
             {
                 UpdateTargetRotationData(directionAngle);
@@ -242,7 +251,7 @@ namespace GenshinImpactMovementSystem
             return directionAngle;
         }
 
-        protected  Vector3 GetTargetRotationDirection(float targetAngle)
+        protected Vector3 GetTargetRotationDirection(float targetAngle)
         {
             return Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
         }
@@ -301,6 +310,66 @@ namespace GenshinImpactMovementSystem
         {
         }
 
+        protected void UpdateCameraRecenteringState(Vector2 movementInput)
+        {
+            if (movementInput == Vector2.zero)
+            {
+                return;
+            }   
+
+            if (movementInput == Vector2.up)
+            {
+                DisableCameraRecentering();
+
+                return;
+            }
+
+           float cameraVerticalAngle = stateMachine.Player.MainCameraTransform.eulerAngles.x;
+
+            if (cameraVerticalAngle >= 270f)
+            {
+                cameraVerticalAngle -= 360f;
+            }
+
+            cameraVerticalAngle = Mathf.Abs(cameraVerticalAngle);
+
+            if (movementInput == Vector2.down)
+            {
+                SetCameraRecenteringState(cameraVerticalAngle, movementData.BackwardsCameraRecenteringData);
+
+                return;
+            }
+
+            SetCameraRecenteringState(cameraVerticalAngle, movementData.SidewaysCameraRecenteringData);
+        }
+
+        protected void EnableCameraRecentering(float waitTime = -1f, float recenteringTime = -1f)
+        {
+            stateMachine.Player.CameraUtility.EnableRecentering(waitTime, recenteringTime);
+        }
+
+        protected void DisableCameraRecentering()
+        {
+            stateMachine.Player.CameraUtility.DisableRecentering();
+        }
+
+       protected void SetCameraRecenteringState(float cameraVerticalAngle, List<PlayerCameraRecenteringData> cameraRecenteringData)
+        {
+            foreach (PlayerCameraRecenteringData recenteringData in cameraRecenteringData)
+            {
+                if (!recenteringData.IsWithinRange(cameraVerticalAngle))
+                {
+                    continue;
+                }
+
+                EnableCameraRecentering(recenteringData.WaitTime, recenteringData.RecenteringTime);
+
+                return;
+            }
+
+            DisableCameraRecentering();
+        }
+
         #endregion
 
         #region Input Methods
@@ -309,6 +378,21 @@ namespace GenshinImpactMovementSystem
         protected virtual void OnWalkToggleStarted(InputAction.CallbackContext context)
         {
             stateMachine.ReusableData.ShouldWalk = !stateMachine.ReusableData.ShouldWalk;
+        }
+
+        private void OnMouseMovementStarted(InputAction.CallbackContext context)
+        {
+            UpdateCameraRecenteringState(stateMachine.ReusableData.MovementInput);
+        }
+
+        private void OnMovementPerformed(InputAction.CallbackContext context)
+        {
+            UpdateCameraRecenteringState(context.ReadValue<Vector2>());
+        }
+
+        private void OnMovementCanceled(InputAction.CallbackContext context)
+        {
+            DisableCameraRecentering();
         }
         #endregion
     }
