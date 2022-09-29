@@ -20,7 +20,16 @@ namespace GenshinImpactMovementSystem
 
             stateMachine.ReusableData.MovementSpeedModifier = movementData.WalkData.SpeedModifier;
 
+            StartAnimation(stateMachine.Player.AnimationData.WalkParameterHash);
+
             stateMachine.ReusableData.CurrentJumpForce = airborneData.JumpData.WeakForce;
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+
+            StopAnimation(stateMachine.Player.AnimationData.WalkParameterHash);
         }
 
         #endregion

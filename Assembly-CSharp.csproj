@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\StateMachine\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Data\Collider\CapsuleColliderData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\Colliders\PlayerTriggerColliderData.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\Utilities\Cameras\PlayerCameraUtility.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\States\Grounded\PlayerGroundedData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Airborne\PlayerAirborneState.cs" />
@@ -85,7 +86,8 @@
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Moving\PlayerRunningState.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\States\Airborne\PlayerFallData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\Cameras\PlayerCameraRecenteringData.cs" />
-     <Compile Include="Assets\Scripts\Characters\Player\Utilities\Cameras\PlayerCameraUtility.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\Data\Animations\PlayerAnimationData.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\Utilities\Animations\PlayerAnimationEventTrigger.cs" />
      <None Include="Assets\Materials\Kenny Mats\License.txt" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon.shader" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_attribute.hlsl" />

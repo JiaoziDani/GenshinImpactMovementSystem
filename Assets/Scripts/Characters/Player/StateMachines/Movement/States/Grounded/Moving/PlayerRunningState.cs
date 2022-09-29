@@ -25,9 +25,18 @@ namespace GenshinImpactMovementSystem
 
             stateMachine.ReusableData.MovementSpeedModifier = movementData.RunData.SpeedModifier;
 
+            StartAnimation(stateMachine.Player.AnimationData.RunParameterHash);
+
             stateMachine.ReusableData.CurrentJumpForce = airborneData.JumpData.MediumForce;
 
             startTime = Time.time;
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+
+            StopAnimation(stateMachine.Player.AnimationData.RunParameterHash);
         }
 
         public override void Update()

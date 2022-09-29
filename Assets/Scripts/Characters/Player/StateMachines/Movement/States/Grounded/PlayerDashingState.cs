@@ -30,6 +30,8 @@ namespace GenshinImpactMovementSystem
 
             stateMachine.ReusableData.MovementSpeedModifier = dashData.SpeedModifier;
 
+            StartAnimation(stateMachine.Player.AnimationData.DashParameterHash);
+
             stateMachine.ReusableData.CurrentJumpForce = airborneData.JumpData.StrongForce;
 
             stateMachine.ReusableData.RotationData = dashData.RotationData;
@@ -44,6 +46,8 @@ namespace GenshinImpactMovementSystem
         public override void Exit()
         {
             base.Exit(); 
+
+            StopAnimation(stateMachine.Player.AnimationData.DashParameterHash);
 
             SetBaseRotationData();
         }
