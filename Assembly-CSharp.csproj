@@ -45,6 +45,7 @@
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Landing\PlayerRollingState.cs" />
      <Compile Include="Assets\Scripts\Utilities\Colliders\CapsuleColliderUtility.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Utilities\Input\PlayerInput.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\Data\Animations\PlayerAnimationData.cs" />
      <Compile Include="Assets\Scripts\Data\Collider\DefaultColliderData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Landing\PlayerLightLandingState.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\States\Grounded\Stopping\PlayerStopData.cs" />
@@ -77,6 +78,7 @@
      <Compile Include="Assets\InputActions\Characters\Player\PlayerInputActions.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Moving\PlayerSprintingState.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Landing\PlayerLandingState.cs" />
+     <Compile Include="Assets\Scripts\Characters\Player\Utilities\Animations\PlayerAnimationEventTrigger.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Stopping\PlayerMediumStoppingState.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraZoom.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\States\PlayerRotationData.cs" />
@@ -86,14 +88,13 @@
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Moving\PlayerRunningState.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\States\Airborne\PlayerFallData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\Cameras\PlayerCameraRecenteringData.cs" />
-     <Compile Include="Assets\Scripts\Characters\Player\Data\Animations\PlayerAnimationData.cs" />
-     <Compile Include="Assets\Scripts\Characters\Player\Utilities\Animations\PlayerAnimationEventTrigger.cs" />
      <None Include="Assets\Materials\Kenny Mats\License.txt" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon.shader" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_attribute.hlsl" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_geometry_vertex.hlsl" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_geometry_uv.hlsl" />
      <None Include="Assets\VRMCharacter\VRMShaders\GLTF\IO\Resources\UniGLTF\NormalMapExporter.shader" />
+     <None Include="Assets\Materials\Map Build\Castle\License.txt" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_lighting_mtoon.hlsl" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_forward_vertex.hlsl" />
      <None Include="Assets\VRMCharacter\VRMShaders\GLTF\IO\Resources\UniGLTF\StandardMapExporter.shader" />
@@ -103,7 +104,10 @@
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_lighting_unity.hlsl" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_utility.hlsl" />
      <None Include="Assets\VRMCharacter\VRMShaders\GLTF\IO\Resources\UniGLTF\StandardMapImporter.shader" />
+     <None Include="Assets\Materials\Map Build\Trees\License.txt" />
+     <None Include="Assets\Materials\Map Build\Trees\readme.txt" />
      <None Include="Assets\VRMCharacter\VRMShaders\GLTF\UniUnlit\Resources\UniGLTF\UniUnlit.shader" />
+     <None Include="Assets\Materials\Map Build\Castle\readme.txt" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_geometry_normal.hlsl" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_define.hlsl" />
     <Reference Include="UnityEngine">
@@ -738,6 +742,9 @@
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
         <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Editor">
+        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
