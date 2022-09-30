@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\PlayerIdlingState.cs" />
      <Compile Include="Assets\Scripts\Data\Collider\SlopeData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\PlayerMovementState.cs" />
+     <Compile Include="Assets\Materials\Title\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Stopping\PlayerLightStoppingState.cs" />
      <Compile Include="Assets\Scripts\StateMachine\IState.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Utilities\Colliders\PlayerCapsuleColliderUtility.cs" />
@@ -88,7 +89,7 @@
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Moving\PlayerRunningState.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\States\Airborne\PlayerFallData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\Cameras\PlayerCameraRecenteringData.cs" />
-     <Compile Include="Assets\Materials\Title\MainMenu.cs" />
+     <Compile Include="Assets\Materials\Pause\PauseMenu.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Materials\Kenny Mats\License.txt" />

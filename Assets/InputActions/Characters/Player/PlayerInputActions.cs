@@ -220,6 +220,33 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""d964ea67-3ba5-4afb-ad78-508a834f4394"",
+            ""actions"": [
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""a81e7133-6484-40ec-b925-c02eebde13fb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""708ae7cc-0cb9-42de-a05d-cb34c4ea375d"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -233,6 +260,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_Escape = m_Menu.FindAction("Escape", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -359,6 +389,39 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_Escape;
+    public struct MenuActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public MenuActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Escape => m_Wrapper.m_Menu_Escape;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @Escape.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnEscape;
+                @Escape.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnEscape;
+                @Escape.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnEscape;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Escape.started += instance.OnEscape;
+                @Escape.performed += instance.OnEscape;
+                @Escape.canceled += instance.OnEscape;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -368,5 +431,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnEscape(InputAction.CallbackContext context);
     }
 }
