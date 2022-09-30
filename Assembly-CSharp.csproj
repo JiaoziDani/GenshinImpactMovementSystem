@@ -81,6 +81,7 @@
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Landing\PlayerLandingState.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Utilities\Animations\PlayerAnimationEventTrigger.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Stopping\PlayerMediumStoppingState.cs" />
+     <Compile Include="Assets\Materials\Pause\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraZoom.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\States\PlayerRotationData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Landing\PlayerHardLandingState.cs" />
@@ -89,7 +90,7 @@
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Moving\PlayerRunningState.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\States\Airborne\PlayerFallData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\Cameras\PlayerCameraRecenteringData.cs" />
-     <Compile Include="Assets\Materials\Pause\PauseMenu.cs" />
+     <Compile Include="Assets\Materials\Pause\MenuReturn.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Materials\Kenny Mats\License.txt" />

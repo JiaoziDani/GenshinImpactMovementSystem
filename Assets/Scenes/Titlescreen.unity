@@ -1771,8 +1771,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -11.6065}
-  m_SizeDelta: {x: 60, y: -27.087}
+  m_AnchoredPosition: {x: 0.010002136, y: 7.9185}
+  m_SizeDelta: {x: 59.980003, y: 11.962999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2064182913
 MonoBehaviour:
@@ -1794,16 +1794,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Movement - WASD
+  m_text: 'Controls
+
+    Movement - WASD
 
     Jump - Space
 
     Walk - Ctrl
 
-    Dash - Left Shift/Right
-    Mouse
+    Dash
+    - Left Shift/Right Mouse
 
-    Sprint - Hold Leftshit/ Hold Right Mouse'
+    Sprint - Hold Leftshit/ Hold Right Mouse
+
+    Main
+    Menu - ESC'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6d3006dac557f54ea107c2f2602218f, type: 2}
   m_sharedMaterial: {fileID: 7741039751347872515, guid: d6d3006dac557f54ea107c2f2602218f, type: 2}
