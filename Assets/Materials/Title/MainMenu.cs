@@ -8,8 +8,11 @@ namespace GenshinImpactMovementSystem
     public class MainMenu : MonoBehaviour
     {
         public void PlayGame()
-        {
+        {   
+            if( SceneManager.GetActiveScene().buildIndex == 0 )
+            {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
 
         public void QuitGame()
