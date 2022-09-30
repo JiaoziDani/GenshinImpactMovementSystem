@@ -88,27 +88,49 @@
      <Compile Include="Assets\Scripts\Characters\Player\StateMachines\Movement\States\Grounded\Moving\PlayerRunningState.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\States\Airborne\PlayerFallData.cs" />
      <Compile Include="Assets\Scripts\Characters\Player\Data\Cameras\PlayerCameraRecenteringData.cs" />
+     <Compile Include="Assets\Materials\Title\MainMenu.cs" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Materials\Kenny Mats\License.txt" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_attribute.hlsl" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_geometry_vertex.hlsl" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_geometry_uv.hlsl" />
      <None Include="Assets\VRMCharacter\VRMShaders\GLTF\IO\Resources\UniGLTF\NormalMapExporter.shader" />
      <None Include="Assets\Materials\Map Build\Castle\License.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_lighting_mtoon.hlsl" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_forward_vertex.hlsl" />
      <None Include="Assets\VRMCharacter\VRMShaders\GLTF\IO\Resources\UniGLTF\StandardMapExporter.shader" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_forward_fragment.hlsl" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_geometry_alpha.hlsl" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_input.hlsl" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_lighting_unity.hlsl" />
+     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_utility.hlsl" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\VRMCharacter\VRMShaders\GLTF\IO\Resources\UniGLTF\StandardMapImporter.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\Materials\Map Build\Trees\License.txt" />
      <None Include="Assets\Materials\Map Build\Trees\readme.txt" />
      <None Include="Assets\VRMCharacter\VRMShaders\GLTF\UniUnlit\Resources\UniGLTF\UniUnlit.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\Materials\Map Build\Castle\readme.txt" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_geometry_normal.hlsl" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
      <None Include="Assets\VRMCharacter\VRMShaders\VRM10\MToon10\Resources\VRM10\vrmc_materials_mtoon_define.hlsl" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.38f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -683,17 +705,20 @@
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Tilemap.Editor">
+        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
         <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Autodesk.Fbx.Editor">
-        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Autodesk.Fbx.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
         <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Autodesk.Fbx.Editor">
+        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Autodesk.Fbx.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Formats.Fbx.Editor">
         <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.Formats.Fbx.Editor.dll</HintPath>
@@ -742,9 +767,6 @@
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
         <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Editor">
-        <HintPath>C:\Users\danny\OneDrive\Desktop\GenshinImpactMovementSystem\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
