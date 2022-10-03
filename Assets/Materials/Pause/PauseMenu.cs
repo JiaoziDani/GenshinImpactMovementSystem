@@ -72,6 +72,11 @@ namespace GenshinImpactMovementSystem
 
             isPaused = false;
         }
+
+         void OnDestroy() 
+         {
+            Time.timeScale = 1;
+        }
          
     }
 }
